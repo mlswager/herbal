@@ -1,0 +1,18 @@
+#home{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/* #welcome-container{
+    border-bottom: solid 1px var(--grey);
+    width:100%;
+}
+#welcome{
+    font-size:4rem;
+    color:var(--darkgreen)
+} */
+#cover{
+    width:100%;
+    margin:10px;
+}

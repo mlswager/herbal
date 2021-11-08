@@ -1,0 +1,66 @@
+.modal-content{
+    border-radius:30px;
+    font-size:1.75rem;
+}
+
+.modal-header{
+    background-color: var(--green);
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+}
+
+.modal-title{
+    color:var(--background);
+    margin-left:2rem;
+}
+
+#login-close-icon{
+    font-size: 3rem;
+    color:var(--background);
+    border-radius: 50%;
+}
+
+#login-close-icon:hover{
+    cursor: pointer;
+    color:var(--darkgreen);
+    /* background-color: var(--darkgreen); */
+}
+
+.modal-body{
+    border-radius: 30px;
+    padding:0rem 0rem 2rem 0rem;
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+    color:var(--darkgreen);
+}
+
+.modal-buttons{
+    display:flex;
+    justify-content: center;
+    margin-top:2rem;
+}
+
+.modal-button{
+    border-radius: 50px;
+    font-size: 2rem;
+    padding:3px 8px 5px 8px;
+    width:10rem;
+}
+
+.modal-end{
+    display:flex;
+    flex-wrap:nowrap;
+}
+
+.modal-link{
+    background: none;
+    font-size:2rem;
+    color:var(--green)
+}
+
+.modal-link:hover{
+    background: none;
+    color:var(--darkgreen)
+}
