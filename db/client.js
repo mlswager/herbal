@@ -1,19 +1,20 @@
 const {Client} = require("pg")
 
-const connectionString = process.env.DATABASE_URL || "https://localhost:5432/herbal"
+const CONNECTION_STRING = process.env.DATABASE_URL || "https://localhost:5432/herbal"
 
-let config={}
-if (process.env.DATABASE_URL) {
-    config.dialectOptions = {
-      ssl: {
-        rejectUnauthorized: false,
-      },
+const config = {
+    connectionString:CONNECTION_STRING
+}
+
+if(process.env.DATABASE_URL){
+    config.ssl={
+        rejectUnauthorized: false
     }
-  }
+}
 
 
 const client = new Client({
-    connectionString,config
+    CONNECTION_STRING,config
 })
 
 module.exports = client
