@@ -3,11 +3,13 @@ const express = require("express")
 const server = express()
 const morgan = require("morgan")
 const PORT = process.env.PORT||4000
-// const PORT = process.env.SERVER_PORT||4000
+// const PORT = process.env.SERVER_PORT||400
 
 
 server.use(morgan('dev'))
 server.use(express.json())
+
+server.use('/',express.static(path.join(_dirname,'../build')))
 
 const apiRouter = require('./api')
 server.use('/api',apiRouter)
