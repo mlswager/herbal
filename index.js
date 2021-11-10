@@ -18,7 +18,6 @@ const apiRouter = require('./api')
 server.use('/api',apiRouter)
 
 const client = require("./db/client")
-
 client.connect()
 
 server.use((error,req,res,next)=>{
@@ -27,6 +26,10 @@ server.use((error,req,res,next)=>{
         name: error.name,
         message: error.message
     })
+})
+
+server.get("*",(req,res,next)=>{
+    res.sendFile(path.join(__dirname, "build", "index.js"))
 })
 
 server.listen(PORT,()=>{
