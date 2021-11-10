@@ -104,10 +104,8 @@ return <div id="app">
         />
         <Route //about page path
         exact path="/"
-        render={(renderprops) => 
-          <Home
-            {...renderprops}
-          />}
+        render={() => 
+          <Home/>}
         />
     </Router>
 </div>
