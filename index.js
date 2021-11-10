@@ -2,12 +2,10 @@ require("dotenv").config()
 const express = require("express")
 const server = express()
 const morgan = require("morgan")
-const {client} = require("./db")
 //const {PORT=4000} = process.env
 const PORT = process.env.PORT||4000
 // const PORT = process.env.SERVER_PORT||400
 
-client.connect()
 
 server.use(morgan('dev'))
 server.use(express.json())
@@ -18,7 +16,9 @@ server.use(express.json())
 const apiRouter = require('./api')
 server.use('/api',apiRouter)
 
+const client = require("./db/client")
 
+client.connect()
 
 server.use((error,req,res,next)=>{
     console.error("SERVER ERROR: ",error)
