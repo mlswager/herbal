@@ -1,6 +1,7 @@
 require("dotenv").config()
 const express = require("express")
 const server = express()
+const path = require('path')
 const morgan = require("morgan")
 //const {PORT=4000} = process.env
 const PORT = process.env.PORT||4000
@@ -11,7 +12,7 @@ server.use(morgan('dev'))
 server.use(express.json())
 
 //express static for build files (can't get it to work)
-// server.use('/',express.static(path.join(_dirname,'../build')))
+server.use('/',express.static(path.join(__dirname,'../build')))
 
 const apiRouter = require('./api')
 server.use('/api',apiRouter)

@@ -31,6 +31,22 @@
     max-width: 100%;
     min-width: 100%; */
 }
+.modal-sp-header-backup{
+    background-image: url("https://www.gardeningknowhow.com/wp-content/uploads/2012/04/peppermint-1-1024x768.jpg");
+    background-position: center;
+    background-size: cover;
+    width:96%;
+    display:flex;
+    padding:3rem;
+    justify-content: end;
+    border-radius: 30px 0px 0px 0px;
+}
+.modal-sp-image{
+    border-radius: 50%;
+    width:26rem;
+    height:26rem;
+    margin:6rem 0rem 1rem 3rem;
+}
 #modal-sp-icon{
     font-size: 3rem;
     background-color: var(--background);

@@ -135,11 +135,12 @@ const SingleProduct = (props) => {
         <div className="modal-sp">
             <div className="modal-sp-content">
                 {/* <div className="modal-sp-header" style={bannerimg}> */}
-                <div className="modal-sp-header">
+                <div className="modal-sp-header-backup">
                     {/* <button onClick={()=>{handleClose()}}>close</button> */}
                     <i className="material-icons md-48 md-dark" id="modal-sp-icon" onClick={()=>{handleClose()}}>close</i>
                 </div>
                 <div className="modal-sp-body">
+                    <img className="modal-sp-image" src={product.image} alt={product.name}/>
                     <div className="modal-sp-info">
                     <h3 className="modal-sp-title">{product.name}</h3>
                     
