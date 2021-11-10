@@ -28,6 +28,7 @@ server.use((error,req,res,next)=>{
     })
 })
 
+//results in "NOT FOUND" message
 server.get("*",(req,res,next)=>{
     res.sendFile(path.join(__dirname, "build", "index.js"))
 })
