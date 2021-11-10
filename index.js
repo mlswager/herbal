@@ -12,7 +12,7 @@ server.use(morgan('dev'))
 server.use(express.json())
 
 //express static for build files (can't get it to work)
-server.use('/',express.static(path.join(__dirname,'../build')))
+server.use('/',express.static(path.join(__dirname,'./build')))
 
 const apiRouter = require('./api')
 server.use('/api',apiRouter)
