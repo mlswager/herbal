@@ -134,7 +134,8 @@ const SingleProduct = (props) => {
     return (
         <div className="modal-sp">
             <div className="modal-sp-content">
-                <div className="modal-sp-header" style={bannerimg}>
+                {/* <div className="modal-sp-header" style={bannerimg}> */}
+                <div className="modal-sp-header">
                     {/* <button onClick={()=>{handleClose()}}>close</button> */}
                     <i className="material-icons md-48 md-dark" id="modal-sp-icon" onClick={()=>{handleClose()}}>close</i>
                 </div>
