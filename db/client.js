@@ -14,7 +14,7 @@ if(process.env.DATABASE_URL){
 
 
 const client = new Client({
-    CONNECTION_STRING,config
+    config
 })
 
 module.exports = client
