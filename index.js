@@ -9,12 +9,13 @@ const PORT = process.env.PORT||4000
 server.use(morgan('dev'))
 server.use(express.json())
 
-server.use('/',express.static(path.join(_dirname,'../build')))
+// server.use('/',express.static(path.join(_dirname,'../build')))
 
 const apiRouter = require('./api')
 server.use('/api',apiRouter)
 
 const client = require("./db/client")
+
 client.connect()
 
 server.use((error,req,res,next)=>{
