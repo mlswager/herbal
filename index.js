@@ -30,9 +30,9 @@ server.use((error,req,res,next)=>{
 
 //results in "NOT FOUND" message
 //For any get routes that are not in /api, rely on ReactRouter to handle
-// server.get("*",(req,res,next)=>{
-//     res.sendFile(path.join(__dirname, "build", "index.js"))
-// })
+server.get("*",(req,res,next)=>{
+    res.sendFile(path.join(__dirname, "build", "index.js"))
+})
 
 server.listen(PORT,()=>{
     console.log("the server is up on port",PORT)
