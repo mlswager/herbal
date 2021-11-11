@@ -18,8 +18,8 @@ usersRouter.get('/me', requireUser, async (req, res, next) => {
 
 //POST /api/users/login
 usersRouter.post("/login",async (req,res,next)=>{
-    //console.log("starting login")
-    //console.log("req.body",req.body)
+    console.log("starting login")
+    console.log("req.body",req.body)
     const {username,password}=req.body
     if (!username || !password){//check that both username and password are entered
         next({
@@ -29,7 +29,7 @@ usersRouter.post("/login",async (req,res,next)=>{
     }
     try{
         const user = await getUser({username,password})//using username and password to get the user from the db
-        //console.log("getUser: ",user)
+        console.log("getUser for credentials check ",user)
         if(!user){//if the username and password do not match in the db
             next({
                 name: "ERROR-LOGIN_IncorrectCredentials",
@@ -37,6 +37,7 @@ usersRouter.post("/login",async (req,res,next)=>{
         }
         else {
             const token = jwt.sign({id: user.id, username: user.username}, JWT_SECRET);
+            console.log("token: ",token)
             res.send({ user, message: "you're logged in!", token });
         }
     }

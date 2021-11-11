@@ -13,7 +13,7 @@ const Login = (props) => {
             console.log("user: ",user)
             const loginResponse = await axios.post("/api/users/login",user)
             console.log("loginResponse",loginResponse)
-            console.log("userId: ",loginResponse.data.user.id)
+            //console.log("userId: ",loginResponse.data.user.id)
             setToken(loginResponse.data.token)
             localStorage.setItem("token",loginResponse.data.token)
             const gotOrderId = await axios.get(`/api/orders/users/${loginResponse.data.user.id}`)
