@@ -3,7 +3,7 @@ const express = require('express')
 const jwt = require ('jsonwebtoken')
 const usersRouter = express.Router()
 //import functions from db
-const { getUser, getUserByUsername, createUser } = require('../db')
+const { getUser, getUserByUsername, createUser,getAllUsers } = require('../db')
 const {requireUser} = require("./utils")
 
 
@@ -89,6 +89,16 @@ usersRouter.post("/register",async (req,res,next)=>{
     catch(error){
         console.log("ERROR-REGISTER ", error)
         next(error)
+    }
+})
+usersRouter.get("/",async (req,res,next)=>{
+    try{
+        const usersResponse = await getAllUsers()
+        //console.log("users: ",usersResponse)
+        res.send(usersResponse)
+    }
+    catch(error){
+    next(error)
     }
 })
 

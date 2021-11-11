@@ -75,11 +75,24 @@ async function getUserById(userId) {
         throw error
     }
 }
+async function getAllUsers(){
+    try{
+        const {rows:users} = await client.query(`
+        SELECT * FROM users
+        `)
+  return users
+    }
+    catch(error){
+        console.log("ERROR @ getAllUsers FUNCTION")
+        throw error
+    }
+}
 
 
 module.exports = {
     createUser,
     getUser,
     getUserByUsername,
-    getUserById
+    getUserById,
+    getAllUsers
 }

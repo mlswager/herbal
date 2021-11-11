@@ -87,7 +87,8 @@ const SingleProduct = (props) => {
                             "price":price,
                             "sciname":product.sciname,
                             "size":size,
-                            "quantity":quantity
+                            "quantity":quantity,
+                            "totalPrice":price*quantity
                         })
                         setGuestCart(cartItem)
                         //console.log("guestCart: ",cartItem)
