@@ -91,7 +91,7 @@ const Cart = (props) =>{
           <div id="cart-screen">
             <div id="cart-items">
               {orderProducts.map(function(element,index){
-                totalCalc = totalCalc+Number(element.price * element.quantity)
+                totalCalc = totalCalc+Number(element.totalPrice)
                   return(
                     <div key={index} className="cart-item">
                       <img src= {element.image} className="cart-item-image"/>
@@ -101,7 +101,7 @@ const Cart = (props) =>{
                         <p className="cart-item-quantity">qty: {element.quantity}</p>
                       </div>
                       <div className="cart-item-price-info">
-                        <p className="cart-item-price">price: ${element.price * element.quantity}</p>
+                        <p className="cart-item-price">price: ${element.totalPrice}</p>
                         <button className="cart-item-button" onClick={()=>{handleRemove(element.productId,element.name,element.size,element.quantity)}}>Remove</button>
                       </div>
                     </div>
