@@ -36,7 +36,7 @@ usersRouter.post("/login",async (req,res,next)=>{
                 message: "Username or Password is incorrect. Please try again."})
         }
         else {
-            const token = jwt.sign({id: user.id, username: user.username}, process.env.JWT_SECRET, {expiresIn: "1w"});
+            const token = jwt.sign({id: user.id, username: user.username}, JWT_SECRET, {expiresIn: "1w"});
             //console.log("token: ",token)
             res.send({ user, message: "you're logged in!", token });
         }
