@@ -19,20 +19,22 @@ const App = ()=>{
     const [guestCart,setGuestCart]=useState([])
 
     useEffect(()=>{
+      //console.log("---starting useEffect---")
       const getState = async()=>{
           //console.log("token: ",localStorage.getItem("token"))
           const gotUser = await axios.get(`/api/users/me`,{
               headers: {Authorization: `Bearer ${localStorage.getItem("token")}`}
           })
           //console.log("gotUser: ",gotUser.data)
-          setUser(gotUser.data)
+          
           const gotOrderId = await axios.get(`/api/orders/users/${gotUser.data.id}`)
           //console.log("gotOrderId: ",gotOrderId.data[0].id)
           //console.log("reset orderId: ",gotOrderId.data[0].id)
           setOrderId(gotOrderId.data[0].id)
+          setUser(gotUser.data)
       }
       if (localStorage.getItem("token")){
-          //console.log("TOKEN YES")
+          console.log("TOKEN YES")
           getState()
           setToken(localStorage.getItem("token"))
       }//if token is in local storage get the token from local storage and set to token then set user to results of getUser
@@ -64,6 +66,8 @@ return <div id="app">
         guestCart={guestCart}
         setGuestCart={setGuestCart}
         setProductId={setProductId}
+        setUser={setUser}
+        user={user}
       />
       <Route //products page path
         path="/products"

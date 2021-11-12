@@ -5,28 +5,32 @@ import ReactModal from "react-modal";
 
 
 const Register = (props) => {
-    const{setToken,setOrderId,showLogin,setShowLogin,guestCart,setGuestCart,username,setUsername,password,setPassword,passwordconfirm,setPasswordConfirm,email,setEmail}=props
+    const{setToken,setOrderId,showLogin,setShowLogin,guestCart,setGuestCart,username,setUsername,password,setPassword,passwordconfirm,setPasswordConfirm,email,setEmail,setUser,user}=props
     
 
     async function register(){
-        let user = {"username":username,"password":password,"email":email}
+        let registerUser = {"username":username,"password":password,"email":email}
+        let registerOrderId = {}
         try{
             if(password === passwordconfirm){
-                const registrationResponse = await axios.post("/api/users/register",user)
+                const registrationResponse = await axios.post("/api/users/register",registerUser)
                 setToken(registrationResponse.data.token)
-                //console.log("userId: ",registrationResponse.data.user.id)
+                console.log("userId: ",registrationResponse.data.user)
+                if(registrationResponse.data.user){
+                    setUser(registrationResponse.data.user)
+                }
+                console.log("register user: ",user)
                 localStorage.setItem("token",registrationResponse.data.token)
                 const newOrder = await axios.post(`/api/orders/users/${registrationResponse.data.user.id}`)
                 //console.log ("newOrder: ",newOrder.data)
-                setOrderId(newOrder.data.id)
-                //console.log("orderId set: ",newOrder.data.id)
+                registerOrderId = newOrder.data.id
                 if(guestCart.length>0){
                     if(confirm("You have previously saved items in your cart. Would you like to merge your new items with the previously saved items in your cart?")){
-                        console.log("merge")
+                        //console.log("merge")
                         guestCart.forEach(element => {
-                            console.log("orderId: ",newOrder.data.id," productId: ",element.id," quantity: ",element.quantity," size: ",element.size," name: ",element.name)
-                            console.log("guestCart",element)
-                            AddToCart(newOrder.data.id,element.id,element.quantity,element.size,element.name)
+                            //console.log("orderId: ",newOrder.data.id," productId: ",element.productId," quantity: ",element.quantity," size: ",element.size," name: ",element.name)
+                            //console.log("guestCart",element)
+                            AddToCart(newOrder.data.id,element.productId,element.quantity,element.size,element.name,element.totalPrice)
                         })
                         setGuestCart([])
                         localStorage.removeItem("cart")
@@ -38,8 +42,6 @@ const Register = (props) => {
                 }
                 
                 setShowLogin("")
-                // setOrderId(newOrder.data.id)
-                // console.log("orderId set: ",newOrder.data.id)
                 alert("You registered and logged in!")
             }
             else{
@@ -51,6 +53,9 @@ const Register = (props) => {
         catch(error){
             console.log("ERROR-registration",error)
             alert("There was an issue with your registration attempt")
+        }
+        if (registerOrderId){
+            setOrderId(registerOrderId)
         }
     }
     function handleSubmit(event){

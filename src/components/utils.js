@@ -2,7 +2,7 @@ import axios from "axios"
 
 const AddToCart = async (orderId,productId,quantity,size,productName,price)=>{
         try{
-            //console.log("UTILS: orderId: ",orderId," productId: ",productId," quantity: ",quantity," size: ",size," name: ",productName)
+            //console.log("UTILS: orderId: ",orderId," productId: ",productId," quantity: ",quantity," size: ",size," name: ",productName," price: ",price)
             let duplicatecheck = false
             const getResponse = await axios.get(`/api/orders_products/order/${orderId}`)
             //console.log("getResponse: ",getResponse.data)

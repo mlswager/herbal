@@ -4,27 +4,32 @@ import {AddToCart} from "./utils"
 import ReactModal from "react-modal";
 
 const Login = (props) => {
-    let {setToken,setOrderId,showLogin,setShowLogin,guestCart,setGuestCart,username,setUsername,password,setPassword}=props
+    let {setToken,setOrderId,showLogin,setShowLogin,guestCart,setGuestCart,username,setUsername,password,setPassword,setUser,user}=props
 
 
     async function login(){
-        let user = {"username":username,"password":password}
+        let loginuser = {"username":username,"password":password}
+        let loginOrderId = {}
         try{
-            console.log("user: ",user)
-            const loginResponse = await axios.post("/api/users/login",user)
-            console.log("loginResponse",loginResponse)
-            //console.log("userId: ",loginResponse.data.user.id)
+            //console.log("user: ",user)
+            const loginResponse = await axios.post("/api/users/login",loginuser)
+            //console.log("loginResponse",loginResponse)
+            //console.log("user: ",loginResponse.data.user)
+            if(loginResponse.data.user){
+                setUser(loginResponse.data.user)
+            }
+            //console.log("login user state: ",user)
             setToken(loginResponse.data.token)
             localStorage.setItem("token",loginResponse.data.token)
             const gotOrderId = await axios.get(`/api/orders/users/${loginResponse.data.user.id}`)
-            setOrderId(gotOrderId.data[0].id)
+            loginOrderId=gotOrderId.data[0].id
             if(guestCart.length>0){
                 if(confirm("You have previously saved items in your cart. Would you like to merge your new items with the previously saved items in your cart?")){
-                    console.log("merge")
+                    //console.log("merge")
                     guestCart.forEach(element => {
-                        //console.log("orderId: ",gotOrderId.data[0].id," productId: ",element.id," quantity: ",element.quantity," size: ",element.size," name: ",element.name)
+                        //console.log("orderId: ",gotOrderId.data[0].id," productId: ",element.productId," quantity: ",element.quantity," size: ",element.size," name: ",element.name," totalPrice: ",element.totalPrice)
                         //console.log("guestCart",element)
-                        AddToCart(gotOrderId.data[0].id,element.id,element.quantity,element.size,element.name)
+                        AddToCart(gotOrderId.data[0].id,element.productId,element.quantity,element.size,element.name,element.totalPrice)
                     })
                     setGuestCart([])
                     localStorage.removeItem("cart")
@@ -40,6 +45,9 @@ const Login = (props) => {
         catch(error){
             console.log("ERROR-login",error)
             alert("There was an issue with your login attempt")
+        }
+        if (loginOrderId){
+            setOrderId(loginOrderId)
         }
     }
     function handleSubmit(event){

@@ -5,7 +5,7 @@ import Login from "./login";
 import Register from "./register";
 
 const Nav = (props) => {
-let {token,setToken,orderId,setOrderId,guestCart,setGuestCart,setProductId}=props
+let {token,setToken,orderId,setOrderId,guestCart,setGuestCart,setProductId,setUser,user}=props
 const[showLogin,setShowLogin]=useState("")
 const[username,setUsername]=useState("")
 const[password,setPassword]=useState("")
@@ -55,6 +55,8 @@ function loginHandle(event){
             setUsername={setUsername}
             password={password}
             setPassword={setPassword}
+            setUser={setUser}
+            user={user}
         />
         <Register classname="loginmodal"
             setToken={setToken}
@@ -72,6 +74,8 @@ function loginHandle(event){
             setPasswordConfirm={setPasswordConfirm}
             email={email}
             setEmail={setEmail}
+            setUser={setUser}
+            user={user}
         />
         </div>
 

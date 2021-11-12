@@ -56,7 +56,8 @@ const SingleProduct = (props) => {
         setProductId(productId)
         if(size){
             if(token){
-            AddToCart(orderId,productId,quantity,size,productName,price)
+                let totalPrice = quantity*price
+            AddToCart(orderId,productId,quantity,size,productName,totalPrice)
             alert(`${quantity} ${product.name} has been added to the cart`)
             }
             else{
@@ -162,7 +163,7 @@ const SingleProduct = (props) => {
                             </div>
                             <input className = "item-spinner" type="number" min="1" max ="10" defaultValue="1" size="2" onChange={function(event){setQuantity(event.target.value)}}></input>
                         </div>
-                        <p className="item-price"><span className="fact-name">Price:</span><span>{price*quantity}</span></p>
+                        <p className="item-price"><span className="fact-name">Price: </span><span>{(Math.round((price*quantity)*100)/100).toFixed(2)}</span></p>
                         <button className="modal-sp-add-item" onClick = {()=>{handleAddToCart(product.id,product.name)}}>add to cart</button>
                     </div>
                 </div>

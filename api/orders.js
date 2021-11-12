@@ -46,10 +46,10 @@ ordersRouter.post("/users/:usersId", async (req,res,next)=>{
         
         const {usersId} = req.params
         const status = "cart"
-        // console.log("usersId: ",usersId)
+        console.log("API usersId: ",usersId)
         const checkForOrder = await getOrderIdByUserId(usersId,status)
         if(checkForOrder.length > 0){
-            //console.log("checkForOrder: ",checkForOrder)
+            console.log("API checkForOrder: ",checkForOrder)
             next({
                 name:"order already exists",
                 message:"an order for that user is already in use"
@@ -57,7 +57,7 @@ ordersRouter.post("/users/:usersId", async (req,res,next)=>{
         }
         else{
             const createdOrder = await createOrder({usersId,status})
-            // console.log("createdOrder: ",createdOrder)
+             console.log("API createdOrder: ",createdOrder)
             res.send(createdOrder)
         }
     }

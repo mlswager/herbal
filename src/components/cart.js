@@ -11,7 +11,7 @@ const Cart = (props) =>{
           console.log("---start to load data---")
           //console.log("orderId: ",orderId)
           const orderProductsResponse = await axios.get(`/api/products/order/${orderId}`)
-          console.log("orderProductsResponse: ",orderProductsResponse.data)
+          //console.log("orderProductsResponse: ",orderProductsResponse.data)
           setOrderProducts(orderProductsResponse.data)
         }
         if(orderId){

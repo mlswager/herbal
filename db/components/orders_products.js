@@ -2,7 +2,7 @@ const client = require('../client')
 
 async function createOrdersProducts({orderId, productId, quantity,size,price}) {
     try{
-        let totalPrice = Number(quantity)*Number(price)
+        //let totalPrice = Number(quantity)*Number(price)
         //console.log("DBquantity: ",quantity)
         //console.log("DBprice: ",price)
         //console.log("DBtotalPrice: ",Number(totalPrice))
@@ -16,7 +16,7 @@ async function createOrdersProducts({orderId, productId, quantity,size,price}) {
         )
         VALUES($1,$2,$3,$4,$5)
         RETURNING *
-        `,[orderId, productId, quantity,size,totalPrice])
+        `,[orderId, productId, quantity,size,price])
         return OP
 
     } catch (error) {
