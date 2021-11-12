@@ -101,7 +101,7 @@ const Cart = (props) =>{
                         <p className="cart-item-quantity">qty: {element.quantity}</p>
                       </div>
                       <div className="cart-item-price-info">
-                        <p className="cart-item-price">price: ${element.totalPrice}</p>
+                        <p className="cart-item-price">price: ${(Math.round((element.totalPrice)*100)/100).toFixed(2)}</p>
                         <button className="cart-item-button" onClick={()=>{handleRemove(element.productId,element.name,element.size,element.quantity)}}>Remove</button>
                       </div>
                     </div>
@@ -113,9 +113,9 @@ const Cart = (props) =>{
                   <div id="cart-checkout-header">
                     <h3 id="cart-checkout-title">Cart Summary</h3>
                   </div>
-                <p id="cart-checkout-subTotalPrice">sub-total: ${totalCalc}</p>
+                <p id="cart-checkout-subTotalPrice">sub-total: ${(Math.round((totalCalc)*100)/100).toFixed(2)}</p>
                 <p id="cart-checkout-shippingPrice">estimated shipping: $7.95</p>
-                <p id="cart-checkout-grandTotalPrice">Grand Total: ${totalCalc+7.95}</p>
+                <p id="cart-checkout-grandTotalPrice">Grand Total: ${(Math.round((totalCalc+7.95)*100)/100).toFixed(2)}</p>
                 <button id="cart-checkout-button" type="submit" onClick={()=>{handleCheckout()}}>Checkout</button>
               </div>
             </div>
