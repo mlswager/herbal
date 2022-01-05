@@ -6,6 +6,9 @@ const About = (props) =>{
     return(
         <div id="about">
             <h2 id="about-title">about herbal</h2>
+            <div id="image-container-portrait-small">
+                    <img id="about-site-image-small" src="https://avatars.githubusercontent.com/u/17241621?v=4"/>
+            </div>
             <div id="about-beginning">
                 <div id="image-container-herbs">
                     <img id="about-beginning-image" src="https://snaped.fns.usda.gov/sites/default/files/styles/crop_ratio_7_5/public/2021-04/herbs.jpg?itok=g_UukhUg"/>

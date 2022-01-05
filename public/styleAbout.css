@@ -27,7 +27,7 @@
     margin:3rem 0 3rem 0;
     clip-path:ellipse(50% 50% at 0% 50%);
     width:60rem;
-    
+    z-index: 1;
 }
 #about-info-container-one{
     padding-right:5%;
@@ -44,9 +44,35 @@
 }
 #image-container-portrait{
     padding-right:3rem;;
+    z-index: 1;
 }
 #about-site-image{
     margin:3rem 0 3rem 0;
     clip-path:ellipse(50% 50% at 50% 50%);
     width:30rem;
+}
+
+@media (max-width:800px){
+    #about-beginning-image{
+        display:none;
+    }
+    #about-info-container-one, #about-info-container-two{
+        padding-right:5%;
+        padding-left: 5%;
+    }
+
+    #image-container-portrait{
+        display: none;
+    }
+    #image-container-herbs{
+        display: none;
+    }
+    #image-container-portrait-small{
+        display:inline-block;
+    }
+    #about-site-image-small{
+        margin:3rem 0 3rem 0;
+        clip-path:ellipse(50% 50% at 50% 50%);
+        width:30rem;
+    }
 }

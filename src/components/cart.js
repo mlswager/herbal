@@ -96,7 +96,7 @@ const Cart = (props) =>{
                     <div key={index} className="cart-item">
                       <img src= {element.image} className="cart-item-image"/>
                       <div className="cart-item-info">
-                         <p className="cart-item-name" name="item-1">{element.name}</p>
+                        <p className="cart-item-name" name="item-1">{element.name}</p>
                         <p className="cart-item-size" name="item-1">{element.size}</p>
                         <p className="cart-item-quantity">qty: {element.quantity}</p>
                       </div>

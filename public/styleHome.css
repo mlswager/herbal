@@ -1,15 +1,16 @@
-#home{
+.home{
     width:100%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-#cover{
+.cover{
     width:100%;
     margin:10px;
-    position:relative
+    position:relative;
+    z-index: 1;
 }
-#home-products-button{
+.home-products-button{
     text-decoration: none;
     background-color: var(--green);
     color:white;
@@ -18,7 +19,19 @@
     padding: 0px 12px 3px 12px;
     position:absolute;
     bottom:48rem;
+    z-index: 2;
+    border: 1.5px solid var(--background)
 }
-#home-products-button:hover{
+.home-products-button:hover{
     background-color: var(--darkgreen);
+}
+
+@media (max-width:800px){
+    .cover {
+        height: 80vh;
+        width: auto;
+    }
+    .home{
+        overflow-x: hidden;
+    }
 }

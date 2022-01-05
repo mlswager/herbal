@@ -25,6 +25,9 @@
     font-weight:800;
     
 }
+#site-name-small{
+    display:none;
+}
 
 #nav-pages{
     align-self:end;
@@ -63,6 +66,9 @@
     align-items:stretch;
     display:flex;
     flex-direction: column;
+}
+.nav-dropdown-small{
+    display:none;
 }
 
 .nav-account-login{
@@ -107,6 +113,107 @@
 #nav-account-icon:hover{
     height:95%;
     width:95%
+}
+@media (max-width:800px) {
+    #nav-bar{
+        display:grid;
+        /* align-items:flex-end; */
+        height:6rem;
+        background-image: linear-gradient(to right bottom, rgb(0, 65, 0, 0.3),rgb(0, 65, 0, 0.3)),url("https://www.thespruce.com/thmb/eNdcHPHBfXlOeVjsnzxWSA07LdY=/4800x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/grow-an-herb-garden-that-wont-die-1762037-01-cc3f6cbbb5bc43c68faf2890ba5f59bc.jpg");
+        background-position: center;
+        background-size: cover;
+        /* justify-content:space-between; */
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-rows: 100%;
+    }
+    #site-name{
+        display:none;
+    }
+    #site-name-small{
+        display:flex;
+        align-self: center;
+        justify-self: center;
+        text-align: center;
+        text-decoration:none;
+        grid-column-start:2;
+        /* background-color: var(--background); */
+        /* clip-path: polygon(50% 0,100% 50%,50% 100%,0 50%); */
+        color:var(--background);
+        font-size:5rem;
+        border-radius:100%;
+        padding: 25px;
+        font-family: 'Berkshire Swash', cursive;
+        font-weight:800;
+    }
+    #nav-pages{
+        display:none;
+    }
+
+    .nav-account-login{
+        display:none;
+    }
+
+    #nav-account-icon{
+        height: 40px;
+        width: 40px;
+    }
+    .nav-dropdown-small{
+        display:inline-block;
+        position:relative;
+    }
+    .nav-dropdown-small button{
+        position:fixed;
+        left:20px;
+        top:20px;
+        z-index: 10;
+        cursor:pointer;
+        border-radius: 100%;
+        background-color: var(--background);
+        color: var(--darkgreen);
+        height:40px;
+        width: 40px;
+    }
+    .menu-nav{
+        display: none;
+    }
+    .menu-nav.show-menu{
+        display: inline-block;
+        width: 150px;
+        background-color: var(--background);
+        border-bottom: 1px solid var(--grey);
+        border-right: 1px solid var(--grey);
+        overflow-y: scroll;
+        list-style: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        height:275px;
+        overflow: hidden;
+        max-width: 290px;
+        z-index: 9;
+        border-radius: 0px 30px 30px 0px;
+        margin-left:-20px;
+    }
+    .menu-nav a{
+        display:block;
+        padding:10px;
+        text-decoration: none;
+        width: 100%;
+        color:var(--darkgreen);
+        font-size: 2rem;
+        text-align: left;
+    }
+    .menu-nav a:hover{
+        color:white;
+    }
+    .menu-nav li:hover {
+        background-color: var(--darkgreen);
+    }
+    .menu-nav li:first-child{
+        margin-top: 5rem;
+    }
+
 }
 
 

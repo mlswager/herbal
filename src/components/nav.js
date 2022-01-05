@@ -11,6 +11,7 @@ const[username,setUsername]=useState("")
 const[password,setPassword]=useState("")
 const[passwordconfirm,setPasswordConfirm]=useState("")
 const[email,setEmail]=useState("")
+const[navBarOpen,setNavBarOpen]=useState(false)
 
 function logoutFunc(event){
   event.preventDefault()//fixed mistake here
@@ -30,6 +31,10 @@ function loginHandle(event){
     event.preventDefault()
     setShowLogin("login")
 }
+
+function handleToggle(){
+    setNavBarOpen(!navBarOpen)
+}
     return (
         <div id="nav-bar">
         <div id="nav-pages">
@@ -37,12 +42,24 @@ function loginHandle(event){
             <Link to = "/about" id="abt-btn" className="nav-button linkto-styleA" >about</Link>
         </div>
         <h1 id="site-name">herbal</h1>
+        <h1 id="site-name-small">h</h1>
         <div id="nav-account-items">
             <div id="nav-account-icon-container">
                 <Link to = "/cart" className="material-icons md-48 md-dark" id="nav-account-icon">shopping_cart</Link>
             </div>
             {token ? <button className = "nav-account-login" onClick = {logoutFunc}>logout</button>:<button className="nav-account-login" onClick={loginHandle}>login</button>}
         </div>
+        <nav className="nav-dropdown-small">
+            {/* <nav id="nav-account-icon-container"> */}
+                <button className="material-icons md-48 md-dark" onClick={handleToggle}>menu</button>
+                <ul className={`menu-nav ${navBarOpen ? " show-menu": ""}`}>
+                    <li onClick={handleToggle}><Link to = "/products" >products</Link></li>
+                    <li onClick={handleToggle}><Link to = "/about" >about</Link></li>
+                    <li onClick={handleToggle}><Link to = "/" >home</Link></li>
+                    <li onClick={handleToggle}>{token ? <a className = "nav-account-login-small" onClick = {logoutFunc}>logout</a>:<a className="nav-account-login-small" onClick={loginHandle}>login</a>}</li>
+                </ul>
+            {/* </nav> */}
+        </nav>
         <Login classname="loginmodal"
             setToken={setToken}
             orderId={orderId}
