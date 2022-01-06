@@ -75,6 +75,8 @@ const AllProducts = (props)=>{
         //console.log("selectedProduct: ",goToSingleProduct)
         //console.log("selectedProduct2: ",goToSingleProductUseSelected)
         //console.log("use?: ",usesFilter)
+        var menu = document.getElementById("menu-lines");
+        menu.classList.add("menu-behind");
         if(usesFilter.length<1){
             setProductId(goToSingleProduct)
         }

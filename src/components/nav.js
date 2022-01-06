@@ -51,7 +51,7 @@ function handleToggle(){
         </div>
         <nav className="nav-dropdown-small">
             {/* <nav id="nav-account-icon-container"> */}
-                <button className="material-icons md-48 md-dark" onClick={handleToggle}>menu</button>
+                <button className="material-icons md-48 md-dark" id="menu-lines" onClick={handleToggle}>menu</button>
                 <ul className={`menu-nav ${navBarOpen ? " show-menu": ""}`}>
                     <li onClick={handleToggle}><Link to = "/products" >products</Link></li>
                     <li onClick={handleToggle}><Link to = "/about" >about</Link></li>
