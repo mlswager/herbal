@@ -173,6 +173,7 @@
         height:40px;
         width: 40px;
     }
+
     .menu-nav{
         display: none;
     }
@@ -213,7 +214,9 @@
     .menu-nav li:first-child{
         margin-top: 5rem;
     }
-
+    .menu-behind {
+        z-index:0 !important;
+    }
 }
 
 

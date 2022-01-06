@@ -123,6 +123,8 @@ const SingleProduct = (props) => {
     }
 
     const handleClose = ()=>{
+        var menu = document.getElementById("menu-lines");
+        menu.classList.remove("menu-behind");
         setProductId("")
         setSize("")
         setPrice(0)
