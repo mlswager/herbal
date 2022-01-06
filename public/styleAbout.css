@@ -52,7 +52,7 @@
     width:30rem;
 }
 
-@media (max-width:800px){
+@media screen and (max-width:800px){
     #about-beginning-image{
         display:none;
     }
