@@ -114,7 +114,7 @@
     height:95%;
     width:95%
 }
-@media (max-width:800px) {
+@media screen and (max-width:800px) {
     #nav-bar{
         display:grid;
         /* align-items:flex-end; */

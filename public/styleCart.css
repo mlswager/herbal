@@ -147,12 +147,15 @@
     }
 }
 
-@media (max-width: 450px){
+@media screen and (max-width: 450px){
     .cart-item{
         display:flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         text-align: center;
+    }
+    #cart-checkout{
+        margin:0;
     }
 }
